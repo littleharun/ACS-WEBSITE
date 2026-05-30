@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Successful</title>
+<link rel="shortcut icon" href="/images/ACS.jpg" type="image/x-icon">   <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #07111f;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .blur-1,
+        .blur-2 {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(130px);
+            opacity: .35;
+        }
+
+        .blur-1 {
+            width: 420px;
+            height: 420px;
+            background: #2563eb;
+            top: -120px;
+            right: -60px;
+        }
+
+        .blur-2 {
+            width: 350px;
+            height: 350px;
+            background: #16a34a;
+            left: -100px;
+            bottom: -50px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 700px;
+            background: rgba(255, 255, 255, .06);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .check {
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            border-radius: 50%;
+            background: #22c55e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .success {
+            color: #4ade80;
+        }
+
+        p {
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, .05);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 25px 0;
+            text-align: left;
+        }
+
+        .info-box li {
+            margin: 10px 0;
+            color: #dbeafe;
+        }
+
+        .home-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #15803d, #22c55e);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .home-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .home-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 30px;
+            background: linear-gradient(135deg, #15803d, #22c55e);
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .home-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(34, 197, 94, 0.25);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="blur-1"></div>
+    <div class="blur-2"></div>
+
+    <div class="card">
+
+        <div class="check">✓</div>
+
+        <h1 class="success">Enrollment Successful!</h1>
+
+        <p>
+            Thank you for enrolling in the ASG Shop Academic Revision Program.
+        </p>
+
+        <p>
+            Your payment has been received and your enrollment has been confirmed.
+        </p>
+
+        <div class="info-box">
+            <h3>What's Next?</h3>
+            <ul>
+                <li>✔ Your enrollment request has been recorded.</li>
+                <li>✔ Course access details will be sent to your phone/email.</li>
+                <li>✔ Join the official Facebook/Telegram group when instructed.</li>
+                <li>✔ Classes will start according to the published routine.</li>
+            </ul>
+        </div>
+
+        <p>
+            Need help? Contact ASG Shop Support.
+        </p>
+
+        <a href="../index.html" class="home-btn">
+            Return to Home
+        </a>
+
+    </div>
+
+</body>
+
+</html>

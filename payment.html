@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout - ASG Shop</title>
+<link rel="shortcut icon" href="/images/ACS.jpg" type="image/x-icon">
+
+<style>
+body {
+      font-family: 'Inter', sans-serif;
+      background: #07111f;
+      color: white;
+      overflow-x: hidden;
+    }
+
+   .blur-1,
+.blur-2 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(130px);
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.blur-1 {
+    width: 420px;
+    height: 420px;
+    background: #2563eb;
+    top: -120px;
+    right: -60px;
+}
+
+.blur-2 {
+    width: 350px;
+    height: 350px;
+    background: #16a34a;
+    left: -100px;
+    top: 420px;
+}
+   
+
+.payment-card {
+    background: white;
+    color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.payment-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.payment-card img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.payment-options {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+</style>
+
+</head>
+<body>
+
+    <div class="blur-1"></div>
+<div class="blur-2"></div>
+
+
+<h1 class="checkout-title" style="text-align: center;">
+    Checkout - ASG Shop
+</h1>
+
+<div class="payment-grid">
+
+    <div class="info-box">
+        <p style="text-align: center;"><b>You are proceeding to buy FRB26wbooks</b></p>
+    </div>
+
+    <div class="payment-options">
+
+    <a href="bkash/bkash-payment.html" class="payment-card">
+        <img src="images/bkash.png" alt="bKash">
+        <h3>bKash</h3>
+    </a>
+
+    <a href="nagad/nagad-payment.html" class="payment-card">
+        <img src="images/nagad.png" alt="Nagad">
+        <h3>Nagad</h3>
+    </a>
+
+</div>
+
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

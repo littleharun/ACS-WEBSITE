@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nagad Payment</title>
+<link rel="shortcut icon" href="/images/NAGAD LOGO.png LOGO.png" type="image/x-icon">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#e5e5e5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.nagad-box{
+    width:330px;
+    min-height:630px;
+    border:5px solid #222;
+    background:radial-gradient(circle,#ff1e24 0%,#c10d14 55%,#99070d 100%);
+    color:#fff;
+    position:relative;
+    padding:18px;
+}
+
+.lang{
+    position:absolute;
+    top:15px;
+    right:15px;
+}
+
+.lang button{
+    background:#c93b1d;
+    color:white;
+    border:1px solid white;
+    border-radius:6px;
+    padding:3px 8px;
+    cursor:pointer;
+}
+
+.logo{
+    text-align:center;
+    margin-top:40px;
+    margin-bottom:25px;
+}
+
+.logo img{
+    width:65px;
+}
+
+.logo h2{
+    margin-top:10px;
+    font-size:18px;
+}
+
+.info{
+    line-height:2;
+    font-size:16px;
+    margin-bottom:70px;
+}
+
+.info strong{
+    margin-right:6px;
+}
+
+.number-title{
+    text-align:center;
+    font-size:16px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.phone-box{
+    display:flex;
+    justify-content:center;
+    gap:3px;
+    margin-bottom:18px;
+}
+
+.phone-box input{
+    width:22px;
+    height:28px;
+    text-align:center;
+    border:none;
+    border-radius:4px;
+    font-size:16px;
+}
+
+.terms{
+    text-align:center;
+    font-size:14px;
+    margin-bottom:30px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:space-between;
+}
+
+.buttons button{
+    width:80px;
+    height:34px;
+    border:none;
+    border-radius:5px;
+    background:white;
+    color:#c00;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.nagad-logo{
+    position:absolute;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    text-align:center;
+    font-size:34px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="nagad-box">
+
+    <div class="lang">
+        <button>বাং</button>
+        <button>Eng</button>
+    </div>
+
+    <div class="logo">
+        🛒
+        <h2>Software Shop Ltd</h2>
+    </div>
+
+    <div class="info">
+        <p><strong>Invoice No:</strong> NG833720260529167010</p>
+        <p><strong>Total Amount:</strong> BDT 5,500.00</p>
+        <p><strong>Charge:</strong> BDT 0</p>
+    </div>
+
+    <div class="number-title">
+        Our Nagad Account Number
+    </div>
+
+    <div class="phone-box">
+        <input maxlength="1" type="number" placeholder="0">
+        <input maxlength="1" type="number" placeholder="1">
+        <input maxlength="1" type="number" placeholder="7">
+        <span style="font-size:22px">-</span>
+        <input maxlength="1" type="number" placeholder="1">
+        <input maxlength="1" type="number" placeholder="3">
+        <input maxlength="1" type="number" placeholder="7">
+        <input maxlength="1" placeholder="1">
+        <span style="font-size:22px">-</span>
+        <input maxlength="1" type="number" placeholder="7">
+        <input maxlength="1" type="number" placeholder="4">
+        <input maxlength="1" type="number" placeholder="1">
+        <input maxlength="1" type="number" placeholder="7">
+    </div>
+    
+    <b>Note:You have to choose send money option and then send money the given number</b><br><br>
+
+    <div class="terms">
+         Make the payment and press proceed
+    </div>
+
+    <div class="buttons">
+        <button onclick="window.location.href='nagad-pin.html'">
+            Proceed
+        </button>
+
+        <button onclick="history.back()">
+            Close
+        </button>
+    </div>
+
+    <div class="nagad-logo">
+        নগদ
+    </div>
+
+</div>
+
+</body>
+</html>

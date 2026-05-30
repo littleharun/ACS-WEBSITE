@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bKash Payment</title>
+    <link rel="shortcut icon" href="/images/BKash-Icon-Logo.wine.png" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #07111f;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .payment-box {
+            width: 580px;
+            background: #fff;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .top-logo {
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .top-logo img {
+            color: #e2136e;
+        }
+
+        .invoice {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid #ddd;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .invoice-left {
+            font-size: 14px;
+            color: #333;
+            max-width: 80%;
+        }
+
+        .invoice-left p {
+            overflow-wrap: anywhere;
+        }
+
+        .invoice-left h3 {
+            font-weight: normal;
+            margin-bottom: 5px;
+        }
+
+        .amount {
+            font-size: 30px;
+            color: #111;
+        }
+
+        .pink-section {
+            background: #e2136e;
+            padding: 80px 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .pink-section h2 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .phone-input {
+            width: 100%;
+            max-width: 520px;
+            padding: 16px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: 3px solid #f7b5cf;
+            text-align: center;
+            outline: none;
+        }
+
+        .terms {
+            margin-top: 18px;
+            font-weight: 600;
+        }
+
+        .terms a {
+            color: white;
+        }
+
+        .bottom {
+            padding: 30px;
+        }
+
+        .btns {
+            display: flex;
+            gap: 12px;
+        }
+
+        .cancel-btn,
+        .confirm-btn {
+            flex: 1;
+            padding: 16px;
+            border: none;
+            font-size: 18px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cancel-btn {
+            background: #efefef;
+        }
+
+        .confirm-btn {
+            background: #e2136e;
+            color: white;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .footer .help {
+            color: #e2136e;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="payment-box">
+
+        <div class="top-logo">
+            <img src="../images/bkash.png" alt="" width="200px" height="100%">
+        </div>
+
+        <div class="invoice">
+            <div class="invoice-left">
+                <h3>APARS CLASSROOM-RM63705</h3>
+                <p>Inv No: 5642952026MELvdh1qppdVwEBzq1022407</p>
+            </div>
+
+            <div class="amount">
+                ৳5500
+            </div>
+        </div>
+
+        <div class="pink-section">
+
+            <h2>Our bKash Account Number</h2>
+
+
+            <h1 class="phone-input"><b>01713717417</b></h1>
+
+            <div class="terms">
+
+
+                <a href="#">terms & conditions</a><br>
+                <b>Note:You have to choose send money option and then send money the given number</b><br><br>
+                Make the payment and press confirm
+            </div>
+
+        </div>
+
+        <div class="bottom">
+
+            <div class="btns">
+                <button class="cancel-btn" onclick="history.back()">
+                    Cancel
+                </button>
+
+                <button class="confirm-btn" onclick="window.location.href='bkash-pin.html'">
+                    Confirm
+                </button>
+            </div>
+
+            <div class="footer">
+                <div class="help">📞 16247</div>
+                © 2026 bKash, All Rights Reserved
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

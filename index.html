@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academic Revision Batch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="acs icon" href="images/ACS.jpg" type="image/x-icon">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #07111f;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 17, 31, 0.75);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-wrapper {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #4aa8ff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 34px;
+      color: #cad3df;
+      font-size: 15px;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .primary-btn {
+      padding: 14px 24px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #15803d, #22c55e);
+      color: white;
+      font-weight: 600;
+      transition: .25s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(34, 197, 94, 0.25);
+    }
+
+    .hero {
+      padding-top: 160px;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .blur-1,
+    .blur-2 {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(130px);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .blur-1 {
+      width: 420px;
+      height: 420px;
+      background: #2563eb;
+      top: -120px;
+      right: -60px;
+    }
+
+    .blur-2 {
+      width: 350px;
+      height: 350px;
+      background: #16a34a;
+      left: -100px;
+      top: 420px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 28px;
+      color: #d5e1ee;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: 68px;
+      line-height: 1.02;
+      letter-spacing: -3px;
+      margin-bottom: 28px;
+      font-weight: 800;
+    }
+
+    .hero h1 span {
+      color: #53a9ff;
+    }
+
+    .hero p {
+      color: #9fb0c5;
+      line-height: 1.9;
+      font-size: 17px;
+      margin-bottom: 40px;
+      max-width: 620px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .ghost-btn {
+      padding: 14px 24px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: white;
+      transition: .25s;
+    }
+
+    .ghost-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-card {
+      position: relative;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 34px;
+      padding: 24px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 24px;
+      margin-bottom: 24px;
+    }
+
+    .hero-card-content {
+      padding: 0 10px 8px;
+    }
+
+    .hero-card-content h3 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .hero-card-content p {
+      margin-bottom: 20px;
+      color: #b6c3d3;
+      line-height: 1.7;
+    }
+
+    .price {
+      font-size: 46px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      color: #63b3ff;
+    }
+
+    section {
+      padding: 110px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .section-title h2 {
+      font-size: 52px;
+      letter-spacing: -2px;
+      margin-bottom: 18px;
+    }
+
+    .section-title p {
+      color: #95a6bb;
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 26px;
+    }
+
+    .feature-card {
+      background: #101c2d;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 34px;
+      transition: .25s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      border-color: #4aa8ff;
+    }
+
+    .feature-icon {
+      width: 68px;
+      height: 68px;
+      border-radius: 18px;
+      background: rgba(74, 168, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin-bottom: 24px;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 14px;
+      font-size: 24px;
+    }
+
+    .feature-card p {
+      color: #9fb0c5;
+      line-height: 1.8;
+    }
+
+    .faculty {
+      background: #101c2d;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 2px;
+      transition: .25s;
+    }
+
+    .teacher-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 26px;
+    }
+
+    .teacher-card {
+      background: #101c2d;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: .25s;
+    }
+
+    .teacher-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .teacher-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .teacher-info {
+      padding: 26px;
+    }
+
+    .teacher-info h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .teacher-info p {
+      color: #9fb0c5;
+    }
+
+    .cta-box {
+      border-radius: 40px;
+      padding: 80px 60px;
+      background: linear-gradient(135deg, #2563eb, #16a34a);
+      text-align: center;
+    }
+
+    .cta-box h2 {
+      font-size: 56px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -2px;
+    }
+
+    .cta-box p {
+      max-width: 760px;
+      margin: auto auto 36px;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 70px 0;
+      background: #f3f3f3;
+      color: #111827;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .9fr 1.2fr;
+      gap: 70px;
+    }
+
+    .footer-box h2 {
+      font-size: 20px;
+      margin-bottom: 22px;
+      font-weight: 700;
+    }
+
+    .footer-box h3 {
+      font-size: 17px;
+      line-height: 1.7;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    .footer-box strong {
+      font-weight: 800;
+    }
+
+    .footer-box p {
+      line-height: 1.9;
+      font-size: 15px;
+      color: #1f2937;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .footer-links a {
+      color: #2563eb;
+      font-size: 15px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .social-icons a {
+      width: 42px;
+      height: 38px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: white;
+      font-weight: 700;
+    }
+
+    .facebook {
+      background: #1877f2;
+    }
+
+    .instagram {
+      background: white;
+      border: 1px solid #ef4444;
+      color: #ef4444 !important;
+    }
+
+    .youtube {
+      background: #ef4444;
+    }
+
+    .mail {
+      background: #374151;
+    }
+
+    .highlight {
+      color: #ef4444;
+    }
+
+    @media(max-width: 980px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .section-title h2,
+      .cta-box h2 {
+        font-size: 38px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media(max-width: 640px) {
+      .hero {
+        padding-top: 130px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .cta-box {
+        padding: 60px 28px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .hero h1 {
+      font-size: 40px;
+    }
+
+    .cta-box {
+      padding: 60px 28px;
+    }
+
+    /* ===== AUTO SLIDING ONLY WITH CSS ===== */
+
+    .mySwiper {
+      width: 100%;
+      overflow: hidden;
+      padding: 35px 0;
+      background: transparent;
+      position: relative;
+    }
+
+    .swiper-wrapper {
+      display: flex;
+      width: max-content;
+      gap: 28px;
+
+      /* AUTO ANIMATION */
+      animation: autoScroll 35s linear infinite;
+    }
+
+    .swiper-wrapper:hover {
+      animation-play-state: paused;
+    }
+
+    .swiper-slide {
+      min-width: 125px !important;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .swiper-slide img {
+      width: 78px !important;
+      height: 78px !important;
+      object-fit: cover;
+      border-radius: 50%;
+      background: #d9d9d9;
+      margin-bottom: 12px;
+      border: 4px solid rgba(255, 255, 255, 0.06);
+      transition: .3s;
+    }
+
+    .swiper-slide:hover img {
+      transform: scale(1.06);
+    }
+
+    .swiper-slide h5 {
+      font-size: 16px;
+      font-weight: 500;
+      color: #ffffff;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .swiper-slide strong {
+      font-size: 14px;
+      color: #cdd6e3;
+      font-weight: 700;
+    }
+
+    /* ===== AUTO SLIDE ANIMATION ===== */
+
+    @keyframes autoScroll {
+
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+
+    }
+
+    /* ===== MOBILE ===== */
+
+    @media(max-width:768px) {
+
+      .swiper-wrapper {
+        gap: 22px;
+      }
+
+      .swiper-slide {
+        min-width: 105px !important;
+      }
+
+      .swiper-slide img {
+        width: 66px !important;
+        height: 66px !important;
+      }
+
+      .swiper-slide h5 {
+        font-size: 14px;
+      }
+
+      .swiper-slide strong {
+        font-size: 13px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container nav-wrapper">
+      <div class="logo">ASG<span> Shop</span></div>
+
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#features">Features</a>
+        <a href="#teachers">Teachers</a>
+        <a href="#routine">Routine</a>
+        <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="blur-1"></div>
+    <div class="blur-2"></div>
+
+    <div class="container hero-grid">
+      <div>
+        <div class="tag">🚀 HSC Final Academic Revision Program</div>
+
+        <h1>
+          Crack Your <span>HSC 2026</span> With A Premium Revision Experience
+        </h1>
+
+        <p>
+          Structured classes, CQ + MCQ solving sessions, premium notes,
+          model tests, exam analysis, recorded lectures, and dedicated mentor support.
+          Designed for science students preparing for board exams and university admission.
+        </p>
+
+      </div>
+
+      <div class="hero-card">
+        <img src="images/ACS-HSC-26-Final-Revision-Batch-all-teacher-1.png" alt="Students">
+
+        <div class="hero-card-content">
+          <h3>Complete Science Batch</h3>
+
+          <div class="price">৳5,999</div>
+
+          <a href="enrollment.html" class="primary-btn" style="width:100%;">
+            ENROLL NOW
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="features">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Why Choose ACS ?</h2>
+        <p>
+          HSC 26 Final Revision Batch এ আমরা অনলাইনে একাডেমিক ও এডমিশনের সবচেয়ে জনপ্রিয় ও
+          অভিজ্ঞ শিক্ষক মন্ডলীকে নিয়ে একটা কমপ্লিট একাডেমিক কোর্স সাজাই।
+        </p> <br>
+        <p>এতে যারা ছাত্র-ছাত্রী আছে তারা একাধারে একাডেমিকের জন্যে একটা Rapid Revision করতে পারে
+          এবং এডমিশনে যাদের কাছে পড়বে তাদের পড়ানোর ধরনের সাথে অভ্যস্ত হয়ে যেতে পারে।</p> <br>
+        <p>এই ব্যাচে আমরা ফিজিক্স, কেমিস্ট্রি, ম্যাথ, বায়োলজি, বাংলা, ইংরেজি এবং আইসিটি প্রতি
+          চ্যাপ্টারে ব্যাসিক থেকে শুরু করে CQ~MCQ সহজ সমৃদ্ধ ক্লাস এবং প্র্যাকটিস এর জন্যে
+          আমাদের সিনিয়র প্যানেল মনোনীত Practice Sheet হিসাবে প্রদান করি, যা কমপ্লিট করে যেতে
+          পারলেই একজন ছাত্রের সেই ক্ষমতা অর্জন হয়ে যাবে যাতেই সে ৯০% মার্ক্স অনায়াসে পেতে
+          পারে।</p> <br>
+        <p>২৫ ব্যাচে ACS এর FRB Compact Series বইগুলো ছিলো শেষ সময়ে গোছানো প্রস্তুতির সবচেয়ে
+          নির্ভরযোগ্য বন্ধু। কম সময়ে প্রতিটি অধ্যায়ের maximum efficient বোর্ড স্ট্যান্ডার্ড
+          প্রস্তুতি নিশ্চিত করতে এইবার আরও সমৃদ্ধ ও গোছানো ভাবে ফুল সিলেবাসের উপর HSC 26
+          Compact Series বই রেডি হচ্ছে। এই বইগুলো হবে তোমার Perfect revision material!</p> <br>
+        <p>ACS এর স্টুডেন্টদের রেজাল্ট তৈরির প্রথম ধাপ এই ফাইনাল রিভিশন ব্যাচ। আমরা
+          ইঞ্জিনিয়ারিং সহ বিভিন্ন অ্যাডমিশনের নির্ধারিত কাট-মার্ক Chase করি এই ব্যাচ দিয়ে।
+          পরবর্তীতে এই ব্যাচের ছাত্র-ছাত্রীরাই এডমিশনে দারুণ বেধে যায় আর ভালো রেজাল্ট করে
+          থাকে, যাদের তোমরা সেলিব্রেশন প্রোগ্রামে দেখে থাকো।</p> <br>
+        <p>যারা পূর্বে গ্যাপ রেখেছিলো পড়ায়, তাদের Comeback করার কোর্স এই HSC FRB কোর্স।</p> <br>
+      </div>
+
+      <div class="feature-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon">📚</div>
+          <h3>Full Syllabus Revision</h3>
+          <p>
+            Complete revision from basics to advanced problem solving.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🎥</div>
+          <h3>Recorded + Live Classes</h3>
+          <p>
+            Watch anytime and never miss important concepts again.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h3>Daily Practice</h3>
+          <p>
+            CQ, MCQ, quizzes, model tests and revision sheets included.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🏆</div>
+          <h3>Top Teachers</h3>
+          <p>
+            Learn from Bangladesh’s most popular academic instructors.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <h4 style="text-align: center;" class="faculty">FACULTIES</h4>
+  <div class="swiper mySwiper swiper-initialized swiper-horizontal">
+    <div class="swiper-wrapper" id="swiper-wrapper-bbe928103c019fc36" aria-live="off"
+      style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px); transition-delay: 0ms;">
+      <div class="swiper-slide text-center swiper-slide-active" style="width: 129px; margin-right: 10px;" role="group"
+        aria-label="1 / 20"> <img src="https://i.postimg.cc/RFKgPcNF/Screenshot-109.png" alt="Numeri Sattar Apar">
+        <h5 class="title.is-5 bangla">অপার ভাইয়া</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong> Physics</strong>
+        </div>
+      </div>
+      <div class="swiper-slide text-center swiper-slide-next" style="width: 129px; margin-right: 10px;" role="group"
+        aria-label="2 / 20"> <img src="https://i.postimg.cc/pXBHdFWZ/Screenshot-24.png" alt="M Mashrur Hussain">
+        <h5 class="title.is-5 bangla">মাশরুর ভাইয়া</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong> Physics</strong>
+        </div>
+      </div>
+      <div class="swiper-slide text-center" style="width: 129px; margin-right: 10px;" role="group" aria-label="3 / 20">
+        <img src="https://i.postimg.cc/3xMKmCMQ/Screenshot-20.png" alt="অপূর্ব দাদা">
+        <h5 class="title.is-5 bangla">অপূর্ব দাদা</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong> Physics</strong>
+        </div>
+      </div>
+      <!-- <div class="swiper-slide text-center"> <img
+                                                src="https://i.postimg.cc/FzgtdCvH/Emon-FRB-1.jpg" alt="ইমন ভাইয়া">
+                                            <h5 class="title.is-5 bangla">ইমন ভাইয়া</h5>
+                                            <div class="content subtitle is-6 mb-1 collapsed">
+                                                <strong> Physics</strong>
+                                            </div>
+                                        </div> -->
+      <div class="swiper-slide text-center" style="width: 129px; margin-right: 10px;" role="group" aria-label="4 / 20">
+        <img src="https://i.postimg.cc/MKsWB6Qd/Screenshot-2025-01-05-at-1-07-48-PM.png" alt="Mottasin Pahlovi">
+        <h5 class="title.is-5 bangla">পাহলভী ভাইয়া</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong> Chemistry</strong>
+        </div>
+      </div>
+      <div class="swiper-slide text-center" style="width: 129px; margin-right: 10px;" role="group" aria-label="5 / 20">
+        <img src="https://i.postimg.cc/5NfBHZjT/dada.png" alt="Sanjoy Chakraborty">
+        <h5 class="title.is-5 bangla">সঞ্জয়দা</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong> Chemistry</strong>
+        </div>
+      </div>
+      <div class="swiper-slide text-center" style="width: 129px; margin-right: 10px;" role="group" aria-label="6 / 20">
+        <img src="https://i.postimg.cc/CKRfF4P6/Screenshot-43.png" alt="Hemel Barua">
+        <h5 class="title.is-5 bangla">হিমেল ভাইয়া</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong> Chemistry</strong>
+        </div>
+      </div>
+      <div class="swiper-slide text-center" style="width: 129px; margin-right: 10px;" role="group" aria-label="7 / 20">
+        <img src="https://i.postimg.cc/0jgqnLNg/H-Nazmus-Sakib-Full-Resolution.jpg" alt="Sanjoy Chakraborty">
+        <h5 class="title.is-5 bangla">সাকিব ভাইয়া</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong> Chemistry</strong>
+        </div>
+      </div>
+      <div class="swiper-slide text-center" style="width: 129px; margin-right: 10px;" role="group" aria-label="8 / 20">
+        <img src="https://i.postimg.cc/TPrmxn6g/Untitled-2.jpg" alt="Abhi Datta Tushar">
+        <h5 class="title.is-5 bangla">অভি দাদা</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong>Math</strong>
+        </div>
+      </div>
+      <div class="swiper-slide text-center" style="width: 129px; margin-right: 10px;" role="group" aria-label="9 / 20">
+        <img src="https://i.postimg.cc/0QPSyrk3/Untitled-2-0.jpg" alt="রাকিবুল ভাইয়া">
+        <h5 class="title.is-5 bangla">রাকিবুল ভাইয়া</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong>Math</strong>
+        </div>
+      </div>
+      <div class="swiper-slide text-center" style="width: 129px; margin-right: 10px;" role="group" aria-label="10 / 20">
+        <img src="https://i.postimg.cc/Y9CsS49q/Screenshot-111.png" alt="দীপিত ভাইয়া">
+        <h5 class="title.is-5 bangla">দীপিত ভাইয়া</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong>Math</strong>
+        </div>
+      </div>
+      <div class="swiper-slide text-center" style="width: 129px; margin-right: 10px;" role="group" aria-label="11 / 20">
+        <img src="https://i.postimg.cc/x84WtXYK/Screenshot-1.png" alt="তোফায়েল ভাইয়া">
+        <h5 class="title.is-5 bangla">তোফায়েল ভাইয়া</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong> Biology</strong>
+        </div>
+      </div>
+      <div class="swiper-slide text-center" style="width: 129px; margin-right: 10px;" role="group" aria-label="12 / 20">
+        <img src="https://i.postimg.cc/9075W48w/Screenshot-112.png" alt="ফাহাদ ভাইয়া">
+        <h5 class="title.is-5 bangla">ফাহাদ ভাইয়া</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong> Biology</strong>
+        </div>
+      </div>
+      <div class="swiper-slide text-center" style="width: 129px; margin-right: 10px;" role="group" aria-label="13 / 20">
+        <img src="https://i.postimg.cc/65G2StK8/Screenshot-113.png" alt="শুভ্র ভাইয়া">
+        <h5 class="title.is-5 bangla">শুভ্র ভাইয়া</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong> Biology</strong>
+        </div>
+      </div>
+
+      <div class="swiper-slide text-center" style="width: 129px; margin-right: 10px;" role="group" aria-label="14 / 20">
+        <img src="https://i.postimg.cc/c41K1QSJ/Omar-Faruk.jpg" alt="ওমর ফারুক স্যার">
+        <h5 class="title.is-5 bangla">ওমর ফারুক স্যার</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong> Bangla</strong>
+        </div>
+      </div>
+      <div class="swiper-slide text-center" style="width: 129px; margin-right: 10px;" role="group" aria-label="15 / 20">
+        <img src="https://i.postimg.cc/ydDnBv4W/Screenshot-82.png" alt="Omar">
+        <h5 class="title.is-5 bangla">তানভীর ভাইয়া</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong> Bangla</strong>
+        </div>
+      </div>
+      <div class="swiper-slide text-center" style="width: 129px; margin-right: 10px;" role="group" aria-label="16 / 20">
+        <img src="https://i.postimg.cc/Hnj54pFg/Screenshot-129.png" alt="সুমন স্যার">
+        <h5 class="title.is-5 bangla">সুমন স্যার</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong> English</strong>
+        </div>
+      </div>
+      <div class="swiper-slide text-center" style="width: 129px; margin-right: 10px;" role="group" aria-label="17 / 20">
+        <img src="https://i.postimg.cc/4nkd7sg2/Screenshot-130.png" alt="ফাহাদ ভাইয়া">
+        <h5 class="title.is-5 bangla">ফাহাদ ভাইয়া</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong> English</strong>
+        </div>
+      </div>
+
+      <div class="swiper-slide text-center" style="width: 129px; margin-right: 10px;" role="group" aria-label="18 / 20">
+        <img src="https://i.postimg.cc/TPrmxn6g/Untitled-2.jpg" alt="অভি দাদা">
+        <h5 class="title.is-5 bangla">অভি দাদা</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong>ICT</strong>
+        </div>
+      </div>
+
+      <div class="swiper-slide text-center" style="width: 129px; margin-right: 10px;" role="group" aria-label="19 / 20">
+        <img src="https://i.postimg.cc/0QPSyrk3/Untitled-2-0.jpg" alt="রাকিবুল ভাইয়া">
+        <h5 class="title.is-5 bangla">রাকিবুল ভাইয়া</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong>ICT</strong>
+        </div>
+      </div>
+      <div class="swiper-slide text-center" role="group" aria-label="20 / 20" style="width: 129px; margin-right: 10px;">
+        <img src="https://i.postimg.cc/Y9CsS49q/Screenshot-111.png" alt="রাকিবুল ভাইয়া">
+        <h5 class="title.is-5 bangla">দীপিত ভাইয়া</h5>
+        <div class="content subtitle is-6 mb-1 collapsed">
+          <strong>ICT</strong>
+        </div>
+      </div>
+
+
+    </div>
+    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+  </div>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-box">
+        <h3><strong>ASG Shop</strong> is the online shop of a popular Online Platform named Apar's Classroom.</h3>
+        <p>
+          Currently more than 1 million students of Bangladesh are learning and developing their skills using this
+          online education platform.
+        </p>
+
+        <div class="social-icons">
+          <a href="#" class="facebook">f</a>
+          <a href="#" class="instagram">◎</a>
+          <a href="#" class="youtube">▶</a>
+          <a href="#" class="mail">✉</a>
+        </div>
+      </div>
+
+      <div class="footer-box">
+        <h2>Important Links</h2>
+
+        <div class="footer-links">
+          <a href="#">Terms and Conditions</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Return and Refund Policy</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </div>
+
+      <div class="footer-box">
+        <h2>Disclaimer</h2>
+
+        <p>
+          All the products are listed for sale in the shop, are owned by the Company.
+          Anyone can buy personal license for the products.
+          But Reselling are Strictly prohibited.
+          Learn more about <span class="highlight">Anti-Piracy Laws & Terms and Conditions.</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
